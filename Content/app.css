@@ -79,3 +79,10 @@ form{
     text-decoration: none;
     color:white;
 }
+#projects{
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:30px;
+    padding-top:40px;
+}
