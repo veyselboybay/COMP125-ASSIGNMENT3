@@ -1,0 +1,39 @@
+#mainIndex{
+    width:100%;
+    height:1000px;
+    background-color:white;
+}
+.asideContent{
+    width:500px;
+    height: 1000px;
+    border-right: solid 1px rgb(197, 190, 190);
+    margin-top:50px;
+    text-align: center;
+    float: left;
+    
+}
+.sectionContent{
+    width:700px;
+    height:1000px;
+    margin-top:50px;
+    text-align: center;
+    float:right;
+    
+    
+}
+.asideContent img{
+    width: 140px;
+    height: 140px;
+    border:4px rgb(173, 169, 169) solid;
+    border-radius:100px;
+}
+.sectionContent th{
+    
+    border-bottom:1px gray solid;
+}
+.sectionContent td{
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 5px;
+    text-align: left;
+}
