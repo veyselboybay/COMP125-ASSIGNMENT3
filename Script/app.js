@@ -1,19 +1,21 @@
 /*
     AUTOR: VEYSEL BOYBAY
     FILE: APP.JS
-    WEBSITE: https://veyselboybay.github.io/COMP125-Assignment-2/
+    WEBSITE: https://veyselboybay.github.io/COMP125-Assignment-3/
     DESCRIPTION: THIS FILE CONTAINS WEB PAGE JAVASCRIPT MODIFICATIONS
 
 
 */
+import {Data} from "./data.js"
 (function()
 {
     function Start()
     {
-        
+        InitializePage();
         leftSide();
         
         rightSide();
+        
         
         
 
@@ -66,8 +68,139 @@
         
         
     }
-    
-    
+    function homeData()
+    {
+        let xhr=new XMLHttpRequest();
+        xhr.open("GET","./Data/parags.json");
+        xhr.send();
+        xhr.addEventListener("readystatechange",function()
+        {
+            if((xhr.readyState===4)&&(xhr.status===200))
+            {
+                let data=JSON.parse(xhr.responseText);
+                infoData=data.Info;
+                dataArray=[];
+                for(const record of infoData)
+                {
+                    let data=new Data();
+                    data.setData(record);
+                    dataArray.push(data);
+                }
+                console.log(dataArray);
 
+            }
+        });
+    }
+    function homeContent()
+    {
+        let xhr=new XMLHttpRequest();
+        xhr.open("GET","./Views/Content/home.html");
+        xhr.send();
+        xhr.addEventListener("readystatechange",function()
+        {
+            if((xhr.readyState===4)&&(xhr.status===200))
+            {
+                let main=document.getElementsByTagName("main")[0];
+                let mainData=xhr.responseText;
+                main.innerHTML=mainData;
+                homeData();
+            }
+        });
+    }
+    function contactContent()
+    {
+        let xhr=new XMLHttpRequest();
+        xhr.open("GET","./Views/Content/contact.html");
+        xhr.send();
+        xhr.addEventListener("readystatechange",function()
+        {
+            if((xhr.readyState===4)&&(xhr.status===200))
+            {
+                let main=document.getElementsByTagName("main")[0];
+                let mainData=xhr.responseText;
+                main.innerHTML=mainData;
+            }
+        });
+    }
+    function projectsContent()
+    {
+        let xhr=new XMLHttpRequest();
+        xhr.open("GET","./Views/Content/projects.html");
+        xhr.send();
+        xhr.addEventListener("readystatechange",function()
+        {
+            if((xhr.readyState===4)&&(xhr.status===200))
+            {
+                let main=document.getElementsByTagName("main")[0];
+                let mainData=xhr.responseText;
+                main.innerHTML=mainData;
+            }
+        });
+    }
+    function InitializePage()
+    {
+        let xhr=new XMLHttpRequest();
+        xhr.open("GET","./Views/partials/header.html");
+        xhr.send();
+        xhr.addEventListener("readystatechange",function()
+        {
+            if((xhr.readyState===4)&&(xhr.status===200))
+            {
+                let header=document.getElementsByTagName("header")[0];
+                let headerData=xhr.responseText;
+                header.innerHTML=headerData;
 
+                PageContent("home");
+
+                let navLinks=document.getElementsByTagName("a");
+                for(const link of navLinks)
+                {
+                   link.addEventListener("click",(event)=>
+                   {
+                        event.preventDefault();
+                        let id=link.getAttribute("id");
+                        console.log(id);
+                        PageContent(id);
+                   });
+                }
+            }
+        });
+    }
+    function PageContent(id)
+    {
+        document.title=id;
+        window.history.pushState("",id,"/"+id.toLowerCase());
+
+        //highlightactivelink
+
+        switch(id)
+        {
+            case "home":
+                homeContent();
+                break;
+            case "contact":
+                contactContent();
+                break;
+            case "projects":
+                projectsContent();
+                break;
+        }
+        loadFooter();
+
+    }
+    function loadFooter()
+    {
+        let xhr=new XMLHttpRequest();
+        xhr.open("GET","./Views/partials/footer.html");
+        xhr.send();
+        xhr.addEventListener("readystatechange",function()
+        {
+            if((xhr.readyState===4)&&(xhr.status===200))
+            {
+                let footer=document.getElementsByTagName("footer")[0];
+                let footerData=xhr.responseText;
+                footer.innerHTML=footerData;
+            }
+        });
+    }
 })();
