@@ -17,7 +17,7 @@ import {Data} from "./data.js"
         
     }
     window.addEventListener("load",Start);
-``
+
     function homeData()
     {
         let xhr=new XMLHttpRequest();
@@ -51,7 +51,7 @@ import {Data} from "./data.js"
     function homeContent()
     {
         let xhr=new XMLHttpRequest();
-        xhr.open("GET","./Views/Content/home.html");
+        xhr.open("GET","/Views/Content/home.html");
         xhr.send();
         xhr.addEventListener("readystatechange",function()
         {
@@ -116,7 +116,7 @@ import {Data} from "./data.js"
                    {
                         event.preventDefault();
                         let id=link.getAttribute("id");
-                        console.log(id);
+                        
                         PageContent(id);
                    });
                 }
