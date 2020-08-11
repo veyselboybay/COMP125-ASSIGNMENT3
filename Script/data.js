@@ -1,14 +1,12 @@
 "use strict";
 export class Data
 {
-    constructor(info1="",info2="",info3="",info4="",info5="",info6="")
+    constructor(firstname,lastname,contactNumber,message)
     {
-        this.info1=info1;
-        this.info2=info2;
-        this.info3=info3;
-        this.info4=info4;
-        this.info5=info5;
-        this.info6=info6;
+        this.firstname=firstname;
+        this.lastname=lastname;
+        this.contactNumber=contactNumber;
+        this.message=message;
     }
     setData(json_data)
     {

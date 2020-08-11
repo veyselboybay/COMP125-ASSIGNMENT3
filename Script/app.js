@@ -76,6 +76,7 @@ import {Data} from "./data.js"
                 let main=document.getElementsByTagName("main")[0];
                 let mainData=xhr.responseText;
                 main.innerHTML=mainData;
+                validateForm();
             }
         });
     }
@@ -159,5 +160,62 @@ import {Data} from "./data.js"
                 footer.innerHTML=footerData;
             }
         });
+    }
+    function validateForm()
+    {
+        let contact=new Data();
+        let contactForm=document.forms[0];
+
+        contactForm.noValidate=true;
+        let errorMessage=document.getElementById("errorMessage");
+
+        let firstname=document.getElementById("fname");
+        firstname.addEventListener("blur",()=>
+        {
+            if(firstname.value.length<=2)
+            {
+                firstname.focus();
+                errorMessage.hidden=false;
+                errorMessage.textContent=`Please enter longer first name.`;
+            }
+            else
+            {
+                contact.firstname=firstname.value;
+                errorMessage.hidden=true;
+            }
+        });
+        let lastname=document.getElementById("lname");
+        lastname.addEventListener("blur",()=>
+        {
+            if(lastname.value.length<=2)
+            {
+                lastname.focus();
+                errorMessage.hidden=false;
+                errorMessage.textContent=`Please enter longer last name.`;
+            }
+            else
+            {
+                contact.lastname=lastname.value;
+                errorMessage.hidden=true;
+            }
+        });
+
+        let contactNumber=document.getElementById("contactNumber");
+        contactNumber.addEventListener("blur",()=>
+        {
+            if(contactNumber.value.length<=2)
+            {
+                contactNumber.focus();
+                errorMessage.hidden=false;
+                errorMessage.textContent=`Please enter longer contact number.`;
+            }
+            else
+            {
+                contact.contactNumber=contactNumber.value;
+                errorMessage.hidden=true;
+            }
+        });
+
+
     }
 })();

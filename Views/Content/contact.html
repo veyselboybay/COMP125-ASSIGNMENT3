@@ -1,4 +1,7 @@
 <form>
+  <div id="errorMessage" class="alert alert-danger" role="alert" hidden>
+
+  </div>
     <div class="form-group">
         <label for="fname">First Name</label><br>
         <input type="text" class="form-control"name="fname" id="fname" placeholder="Enter your first name:" required><br>
@@ -7,11 +10,11 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Contact Number</label>
-      <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="Enter your contact number:" required>
+      <input type="tel" class="form-control" id="contactNumber" placeholder="Enter your contact number:" required>
     </div>
     
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <label for="exampleFormControlTextarea1">Enter Your Message Here</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" id="submit" ><i class="far fa-paper-plane"></i> Send</button>
