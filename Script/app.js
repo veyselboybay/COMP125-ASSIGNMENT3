@@ -148,7 +148,7 @@ import {Data} from "./data.js"
     function loadFooter()
     {
         let xhr=new XMLHttpRequest();
-        xhr.open("GET","./Views/partials/footer.html");
+        xhr.open("GET","/Views/partials/footer.html");
         xhr.send();
         xhr.addEventListener("readystatechange",function()
         {
