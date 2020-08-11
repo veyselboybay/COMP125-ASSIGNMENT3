@@ -48,6 +48,42 @@ import {Data} from "./data.js"
             }
         });
     }
+    function projectData()
+    {
+        let xhr=new XMLHttpRequest();
+        xhr.open("GET","./Data/parags.json");
+        xhr.send();
+        xhr.addEventListener("readystatechange",function()
+        {
+            if((xhr.readyState===4)&&(xhr.status===200))
+            {
+                let data=JSON.parse(xhr.responseText);
+                let infoData=data.projects;
+                let dataarray=[];
+                for(const record of infoData)
+                {
+                    let data=new Data();
+                    data.setProject(record);
+                    dataarray.push(data);
+                }
+
+                let tableBody=document.getElementById("projectsTable");
+                for(const data of dataarray)
+                {
+                    let row=document.createElement("ol");
+                    row.innerHTML=
+                    `
+                    <li>${data.project1}</li>
+                    <li>${data.project2}</li>
+                    <li>${data.project3}</li>
+                    <li>${data.project4}</li>
+                    `;
+                    tableBody.appendChild(row);
+                }
+                
+            }
+        });
+    }
     function homeContent()
     {
         let xhr=new XMLHttpRequest();
@@ -92,6 +128,7 @@ import {Data} from "./data.js"
                 let main=document.getElementsByTagName("main")[0];
                 let mainData=xhr.responseText;
                 main.innerHTML=mainData;
+                projectData();
             }
         });
     }

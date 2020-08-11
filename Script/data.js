@@ -17,4 +17,11 @@ export class Data
         this.info5=json_data.info5;
         this.info6=json_data.info6;
     }
+    setProject(json)
+    {
+        this.project1=json.project1;
+        this.project2=json.project2;
+        this.project3=json.project3;
+        this.project4=json.project4;
+    }
 }

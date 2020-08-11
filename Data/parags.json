@@ -9,5 +9,14 @@
             "info5":"vboybay@my.centennialcollege.ca",
             "info6":"My name is Veysel Boybay. I am Centennial College 1st year student and  studying Software Engineering Technology.My short time goal is to succeed in my classes and learn as much as I can and find myself a co-op chance where I can improve myself more.If I talk about my long term goal, because of the technological edvancements AI and ML pull my attention a lot.I am feeling that working on these areas will exite me more. So, I will try to improve myself for these fields."
         }
+    ],
+    "projects":
+    [
+        {
+            "project1":"Machine Learning",
+            "project2":"Artificial Inteligence",
+            "project3":"Mobile Application",
+            "project4":"Globally Working Website"
+        }
     ]
 }
